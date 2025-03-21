@@ -2,149 +2,201 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Impulsione Seu Negócio com Google Meu Negócio + Mini Site Profissional</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Google Meu Negócio + Mini Site Profissional</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f2f2f2;
-      color: #333;
+      background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlXzeR_yRmZw_chUhiFwbi2KncnR01wDjReQ&s') no-repeat center center/cover;
+      color: #fff;
       line-height: 1.6;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.6); /* transparência suave */
+      z-index: 0;
+    }
+    .content {
+      position: relative;
+      z-index: 1;
     }
     header {
-      background: linear-gradient(135deg, #0d47a1, #1976d2);
-      padding: 40px 20px;
       text-align: center;
-      color: white;
+      padding: 40px 20px;
     }
     header h1 {
-      margin: 0;
       font-size: 36px;
+      margin: 0;
+      animation: fadeInDown 1s ease-in-out;
     }
     header p {
-      font-size: 22px;
+      font-size: 20px;
       margin-top: 10px;
     }
-    .oferta {
-      background-color: #fff;
+    .verificado {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 15px;
+      font-size: 18px;
+      color: #0f0;
+      font-weight: bold;
+    }
+    .verificado img {
+      width: 24px;
+      margin-right: 8px;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .oferta, .beneficios, .cta, footer, .depoimentos {
       padding: 40px 20px;
-      text-align: center;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      margin: 20px auto;
+      max-width: 800px;
     }
     .oferta h2 {
-      color: #d32f2f;
+      color: #ffd700;
       font-size: 28px;
     }
-    .oferta p {
-      font-size: 20px;
-      margin-top: 15px;
+    .video-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
     }
     .video {
-      text-align: center;
-      margin: 40px auto;
+      flex: 1 1 300px; /* mínimo 300px, cresce conforme espaço */
+      max-width: 500px;
     }
     .video iframe {
-      width: 90%;
-      max-width: 640px;
-      height: 360px;
+      width: 100%;
+      height: 280px;
       border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.15);
-    }
-    .beneficios {
-      background-color: #fff;
-      margin: 20px;
-      padding: 40px 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.1);
-    }
-    .beneficios h3 {
-      font-size: 26px;
-      margin-bottom: 20px;
-      text-align: center;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
     }
     .beneficios ul {
       list-style: none;
       padding: 0;
-      font-size: 19px;
-      max-width: 800px;
-      margin: 0 auto;
     }
     .beneficios li {
       margin-bottom: 12px;
-      padding-left: 20px;
       position: relative;
+      padding-left: 24px;
     }
     .beneficios li::before {
-      content: "\2714";
+      content: "✔";
       position: absolute;
       left: 0;
-      color: #2e7d32;
+      color: #0f0;
       font-weight: bold;
-    }
-    .cta {
-      text-align: center;
-      margin: 50px 20px;
-    }
-    .cta p {
-      font-size: 22px;
-      margin-bottom: 25px;
     }
     .cta a {
       background-color: #43a047;
       color: white;
-      padding: 20px 32px;
+      padding: 16px 28px;
       text-decoration: none;
-      border-radius: 10px;
-      font-size: 22px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: background-color 0.3s ease;
+      border-radius: 8px;
+      font-size: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      animation: pulse 1.5s infinite;
     }
-    .cta a:hover {
-      background-color: #388e3c;
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
     footer {
       text-align: center;
-      padding: 20px;
-      font-size: 15px;
-      color: #666;
-      background-color: #e0e0e0;
+      font-size: 14px;
+      color: #ccc;
+    }
+    .depoimentos {
+      padding: 40px 20px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      margin: 20px auto;
+      max-width: 800px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .depoimentos h3 {
+      font-size: 24px;
+      color: #ffd700;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .depoimentos blockquote {
+      font-style: italic;
+      background-color: rgba(0,0,0,0.5);
+      padding: 16px;
+      border-left: 4px solid #0f0;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      color: #fff;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Atualize seu Google Meu Negócio + Mini Site Profissional</h1>
-    <p><strong>Oferta Especial: De R$397 por apenas R$97 - Válido por Tempo Limitado!</strong></p>
-  </header>
+  <div class="content">
+    <header>
+      <h1>Atualize seu Google Meu Negócio + Mini Site Profissional</h1>
+      <p><strong>Oferta Especial: De R$397 por R$97 - Válido por Tempo Limitado!</strong></p>
+      <div class="verificado">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg" alt="Verificado">
+        Somos Verificados e Certificados
+      </div>
+    </header>
 
-  <section class="oferta">
-    <h2>Posicione sua empresa no topo e conquiste mais clientes</h2>
-    <p>Informações desatualizadas afastam oportunidades. Tenha um perfil profissional com mini site completo.</p>
-  </section>
+    <section class="oferta">
+      <h2>Posicione sua empresa no topo e conquiste mais clientes</h2>
+      <p>Informações desatualizadas afastam oportunidades. Tenha um perfil profissional com mini site completo.</p>
+    </section>
 
-  <section class="video">
-    <iframe src="https://www.youtube.com/embed/SEU_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-  </section>
+    <section class="video-container">
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/3rsJfOau6LY?si=cNEWBCAGcZicBp7g" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/mC6G2oOytJ0?si=C3HMNyXYa7NpxZWo" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
 
-  <section class="beneficios">
-    <h3>Serviços Inclusos:</h3>
-    <ul>
-      <li>Atualização completa no Google Meu Negócio</li>
-      <li>Fotos otimizadas para maior impacto</li>
-      <li>Mini site profissional com design responsivo</li>
-      <li>Botão de contato direto via WhatsApp</li>
-      <li>Links para redes sociais integrados</li>
-      <li>Suporte personalizado e acompanhamento</li>
-    </ul>
-  </section>
+    <section class="beneficios">
+      <h3>Serviços Inclusos:</h3>
+      <ul>
+        <li>Atualização completa no Google Meu Negócio</li>
+        <li>Fotos otimizadas para maior impacto</li>
+        <li>Mini site profissional com design responsivo</li>
+        <li>Botão de contato direto via WhatsApp</li>
+        <li>Links para redes sociais integrados</li>
+        <li>Suporte personalizado e acompanhamento</li>
+      </ul>
+    </section>
 
-  <div class="cta">
-    <p><strong>Garanta sua atualização e eleve seu negócio!</strong></p>
-    <a href="https://wa.me/5566999319376?text=Pronto,%20eu%20topo%20o%20servi%C3%A7o" target="_blank">Falar com Fellipe via WhatsApp</a>
+    <section class="depoimentos">
+      <h3>O que nossos clientes dizem:</h3>
+      <blockquote>"A atualização no Google Meu Negócio trouxe muitos clientes novos!" <br><strong>- Maria S.</strong></blockquote>
+      <blockquote>"O mini site ficou incrível e muito profissional. Recomendo!" <br><strong>- João L.</strong></blockquote>
+    </section>
+
+    <div class="cta">
+      <p><strong>Garanta sua atualização e eleve seu negócio!</strong></p>
+      <a href="https://wa.me/5566999319376?text=Pronto,%20eu%20topo%20o%20serviço" target="_blank">Falar com Fellipe via WhatsApp</a>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Fellipe | Especialista em Google Meu Negócio e Páginas Web</p>
+    </footer>
   </div>
-
-  <footer>
-    <p>&copy; 2025 Fellipe | Especialista em Google Meu Negócio e Páginas Web</p>
-  </footer>
 </body>
 </html>
